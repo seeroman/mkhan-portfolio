@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 import leftBig from "../assets/hero/left-big.jpg";
 import leftSmall from "../assets/hero/left-small.jpg";
-import phone from "../assets/hero/phone.jpg";
+import phone from "../assets/hero/phone.png";
 import rightMid from "../assets/hero/right-mid.jpg";
 import rightSmall from "../assets/hero/right-small.jpg";
 
