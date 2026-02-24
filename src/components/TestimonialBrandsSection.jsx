@@ -12,6 +12,8 @@ import b1 from "../assets/home/brands/gadgetbd.png";
 import b2 from "../assets/home/brands/adov.png";
 import b3 from "../assets/home/brands/aunek.png";
 import b4 from "../assets/home/brands/romix.png";
+import b5 from "../assets/home/brands/kuyia.png";
+import b6 from "../assets/home/brands/styleteck.png";
 
 const avatars = [
   { src: t1, size: 64, x: -420, y: 30 },
@@ -21,6 +23,16 @@ const avatars = [
   { src: t5, size: 70, x: 160, y: 10 },
   { src: t6, size: 74, x: 290, y: 95 },
   { src: t7, size: 70, x: 430, y: 35 },
+];
+
+const brands = [
+  { src: b1, alt: "Gadgetbd" },
+  { src: b2, alt: "ADOV" },
+  { src: b3, alt: "AUNEK" },
+  { src: b4, alt: "ROMIX" },
+  // add two more:
+  // { src: b5, alt: "Brand5" },
+  // { src: b6, alt: "Brand6" },
 ];
 
 export default function TestimonialBrandsSection() {
@@ -101,11 +113,22 @@ export default function TestimonialBrandsSection() {
         <div className="mt-20">
           <p className="text-white/40 text-[16px]">Brands</p>
 
-          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 items-center gap-10">
-            <img src={b1} alt="Gadgetbd" className="h-14 w-auto opacity-95" />
-            <img src={b2} alt="ADOV" className="h-12 w-auto opacity-95" />
-            <img src={b3} alt="AUNEK" className="h-12 w-auto opacity-95" />
-            <img src={b4} alt="ROMIX" className="h-12 w-auto opacity-95" />
+          {/* Brands marquee */}
+          <div className="mt-10 brand-marquee">
+            <div className="brand-marquee-track gap-16 items-center">
+              {[...brands, ...brands].map((b, i) => (
+                <div
+                  key={i}
+                  className="flex items-center justify-center min-w-[180px]"
+                >
+                  <img
+                    src={b.src}
+                    alt={b.alt}
+                    className="h-12 w-auto opacity-95"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
