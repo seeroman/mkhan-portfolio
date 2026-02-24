@@ -1,6 +1,6 @@
 import Hero from "../components/Hero";
 import WelcomeIntro from "../components/WelcomeIntro";
-import WorkEthicSection from "../components/WorkEthicScrollSection";
+
 import TestimonialBrandsSection from "../components/TestimonialBrandsSection";
 import WorkProcessSection from "../components/WorkProcessSection";
 import FaqSection from "../components/FaqSection";

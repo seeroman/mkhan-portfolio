@@ -1,6 +1,6 @@
 // src/components/Hero.jsx
 import { motion } from "framer-motion";
-
+import cursorImg from "../assets/hero/Cursor.png";
 import leftBig from "../assets/hero/left-big.jpg";
 import leftSmall from "../assets/hero/left-small.jpg";
 import phone from "../assets/hero/phone.png";
@@ -49,30 +49,20 @@ export default function Hero() {
             </h1>
 
             {/* Cursor icon (no border) */}
+
+            {/* PNG Cursor */}
             <div className="hidden md:block absolute right-[360px] top-[120px]">
-              <motion.svg
-                width="48"
-                height="48"
-                viewBox="0 0 24 24"
-                fill="none"
-                className="opacity-90"
+              <motion.img
+                src="/Cursor.png"
+                alt="Cursor"
+                width={60}
+                height={60}
+                className="block"
+                style={{ width: 60, height: 60 }}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                <path
-                  d="M7 3l12 9-7 1 2.5 7-2.2.8L9.8 14 7 17V3z"
-                  stroke="white"
-                  strokeWidth="1.3"
-                  strokeLinejoin="round"
-                />
-                <path
-                  d="M19 4l1-2M21 8l2-1M19 12l2 1"
-                  stroke="white"
-                  strokeWidth="1.3"
-                  strokeLinecap="round"
-                />
-              </motion.svg>
+              />
             </div>
           </div>
         </div>

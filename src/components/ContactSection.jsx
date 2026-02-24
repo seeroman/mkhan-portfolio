@@ -1,4 +1,5 @@
 import { useState } from "react";
+import BrandedSelect from "../components/BrandedSelect";
 
 export default function ContactSection() {
   const [form, setForm] = useState({
@@ -16,14 +17,28 @@ export default function ContactSection() {
 
   function onSubmit(e) {
     e.preventDefault();
-    // no backend — you can later connect EmailJS / Formspree etc.
     console.log("Contact form:", form);
     alert("Submitted (demo).");
   }
 
   const inputBase =
-    "w-full h-[56px] rounded-xl border border-black/35 bg-transparent px-5 text-[16px] text-black outline-none placeholder:text-black/35 focus:border-black/60 transition-colors";
+    "w-full h-[56px] rounded-xl border border-black/35 bg-transparent px-5 text-[16px] text-black outline-none placeholder:text-black/35 focus:border-[#f15a28] focus:ring-1 focus:ring-[#f15a28] transition-colors";
   const labelBase = "text-[16px] text-black/80 mb-3";
+
+  const serviceOptions = [
+    { value: "gallery", label: "Gallery / Listing Images" },
+    { value: "aplus", label: "A+ / Enhanced Content" },
+    { value: "brand", label: "Brand / Marketing Graphics" },
+    { value: "other", label: "Other" },
+  ];
+
+  const sourceOptions = [
+    { value: "google", label: "Google Search" },
+    { value: "social", label: "Social Media" },
+    { value: "referral", label: "Referral" },
+    { value: "marketplace", label: "Marketplace" },
+    { value: "other", label: "Other" },
+  ];
 
   return (
     <section className="bg-[#f4f4f4]">
@@ -68,75 +83,30 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Row 2 */}
+          {/* Row 2 (custom select) */}
           <div className="mt-8">
             <div className={labelBase}>What service are you interested in?</div>
-            <div className="relative">
-              <select
-                name="service"
-                value={form.service}
-                onChange={onChange}
-                className={`${inputBase} appearance-none pr-12`}
-                required
-              >
-                <option value="" disabled>
-                  Main images, Gallery images, Graphic. . .
-                </option>
-                <option>Gallery / Listing Images</option>
-                <option>A+ / Enhanced Content</option>
-                <option>Brand / Marketing Graphics</option>
-                <option>Other</option>
-              </select>
-
-              {/* chevron */}
-              <div className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-black/70">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M6 9l6 6 6-6"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
+            <BrandedSelect
+              name="service"
+              value={form.service}
+              onChange={(v) => setForm((p) => ({ ...p, service: v }))}
+              options={serviceOptions}
+              placeholder="Main images, Gallery images, Graphic. . ."
+              required
+            />
           </div>
 
-          {/* Row 3 */}
+          {/* Row 3 (custom select) */}
           <div className="mt-8">
             <div className={labelBase}>How did you find me?</div>
-            <div className="relative">
-              <select
-                name="source"
-                value={form.source}
-                onChange={onChange}
-                className={`${inputBase} appearance-none pr-12`}
-                required
-              >
-                <option value="" disabled>
-                  Select an option
-                </option>
-                <option>Google Search</option>
-                <option>Social Media</option>
-                <option>Referral</option>
-                <option>Marketplace</option>
-                <option>Other</option>
-              </select>
-
-              {/* chevron */}
-              <div className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-black/70">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M6 9l6 6 6-6"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-            </div>
+            <BrandedSelect
+              name="source"
+              value={form.source}
+              onChange={(v) => setForm((p) => ({ ...p, source: v }))}
+              options={sourceOptions}
+              placeholder="Select an option"
+              required
+            />
           </div>
 
           {/* Row 4 */}
@@ -147,7 +117,7 @@ export default function ContactSection() {
               value={form.message}
               onChange={onChange}
               placeholder="Describe your project"
-              className="w-full min-h-[220px] rounded-xl border border-black/35 bg-transparent px-5 py-4 text-[16px] text-black outline-none placeholder:text-black/35 focus:border-black/60 transition-colors resize-none"
+              className="w-full min-h-[220px] rounded-xl border border-black/35 bg-transparent px-5 py-4 text-[16px] text-black outline-none placeholder:text-black/35 focus:border-[#f15a28] focus:ring-1 focus:ring-[#f15a28] transition-colors resize-none"
               required
             />
           </div>
