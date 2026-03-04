@@ -30,9 +30,8 @@ const brands = [
   { src: b2, alt: "ADOV" },
   { src: b3, alt: "AUNEK" },
   { src: b4, alt: "ROMIX" },
-  // add two more:
-  // { src: b5, alt: "Brand5" },
-  // { src: b6, alt: "Brand6" },
+  { src: b5, alt: "kuyia" },
+  { src: b6, alt: "styleteck" },
 ];
 
 export default function TestimonialBrandsSection() {

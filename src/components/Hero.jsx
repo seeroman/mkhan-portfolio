@@ -51,14 +51,14 @@ export default function Hero() {
             {/* Cursor icon (no border) */}
 
             {/* PNG Cursor */}
-            <div className="hidden md:block absolute right-[360px] top-[120px]">
+            <div className="hidden md:block absolute right-[335px] top-[120px]">
               <motion.img
                 src="/Cursor.png"
                 alt="Cursor"
-                width={60}
-                height={60}
+                width={90}
+                height={90}
                 className="block"
-                style={{ width: 60, height: 60 }}
+                style={{ width: 90, height: 90 }}
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
