@@ -47,8 +47,6 @@ export default function WorkEthicHorizontalSticky() {
 
   const sectionRef = useRef(null);
   const trackRef = useRef(null);
-
-  // progress across the section: 0..1
   const [p01, setP01] = useState(0);
 
   useEffect(() => {
@@ -62,14 +60,12 @@ export default function WorkEthicHorizontalSticky() {
       const rect = el.getBoundingClientRect();
       const vh = window.innerHeight;
 
-      // Scrollable distance of this section
       const total = el.offsetHeight - vh;
       const scrolled = clamp(-rect.top, 0, total);
       const p = total > 0 ? scrolled / total : 0;
 
       setP01(p);
 
-      // Total horizontal distance to travel: (track width - viewport width)
       const maxX = track.scrollWidth - window.innerWidth;
       const x = -maxX * p;
 
@@ -91,44 +87,28 @@ export default function WorkEthicHorizontalSticky() {
     };
   }, []);
 
-  // active index for progress bars
   const n = slides.length;
   const active = clamp(Math.floor(p01 * n), 0, n - 1);
   const activeFill = clamp(p01 * n - active, 0, 1);
 
   return (
-    <section ref={sectionRef} className="bg-white text-black pb-16">
-      {/* Give vertical scroll length = enough to move all horizontal panels */}
-      {/* tweak this: more panels => bigger vh */}
+    <section ref={sectionRef} className="bg-white text-black pb-40">
       <div className="h-[260vh]">
         <div className="sticky top-0 h-screen overflow-hidden">
-          {/* subtle dotted background */}
-          <div className="absolute inset-0 opacity-[0.25] pointer-events-none">
-            <div
-              className="absolute inset-0"
-              style={{
-                backgroundImage:
-                  "radial-gradient(rgba(0,0,0,0.15) 1px, transparent 1px)",
-                backgroundSize: "22px 22px",
-                backgroundPosition: "0 0",
-              }}
-            />
-          </div>
-
+          {/* HEADER */}
           <div className="relative max-w-[1400px] mx-auto px-10 pt-20">
             <p className="text-black/60 text-[18px]">Work Ethic</p>
 
-            <div className="mt-2 flex items-end justify-between gap-10">
-              <h2 className="text-[48px] md:text-[64px] leading-[1.05] font-light text-black">
-                Designed for <span className="font-medium">progress</span>
-              </h2>
-            </div>
+            <h2 className="mt-2 text-[48px] md:text-[64px] leading-[1.05] font-light">
+              Designed for <span className="font-medium">progress</span>
+            </h2>
 
-            {/* top progress bars */}
-            <div className="mt-8 flex gap-4 max-w-[520px]">
+            {/* progress */}
+            <div className="mt-10 flex gap-4 max-w-[520px]">
               {slides.map((_, i) => {
                 const width =
                   i < active ? 100 : i === active ? activeFill * 100 : 0;
+
                 return (
                   <div
                     key={i}
@@ -136,10 +116,7 @@ export default function WorkEthicHorizontalSticky() {
                   >
                     <div
                       className="h-full bg-black/80"
-                      style={{
-                        width: `${width}%`,
-                        transition: "width 80ms linear",
-                      }}
+                      style={{ width: `${width}%` }}
                     />
                   </div>
                 );
@@ -147,8 +124,20 @@ export default function WorkEthicHorizontalSticky() {
             </div>
           </div>
 
-          {/* Horizontal track */}
-          <div className="relative mt-2 h-[calc(100vh-220px)]">
+          {/* CENTER DOTTED STAGE */}
+          <div className="relative mt-10 h-[calc(100vh-220px)] flex items-center">
+            <div className="absolute inset-0 flex justify-center">
+              <div
+                className="w-[85%] h-full rounded-[32px]"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(rgba(0,0,0,0.10) 1px, transparent 1px)",
+                  backgroundSize: "20px 20px",
+                }}
+              />
+            </div>
+
+            {/* horizontal track */}
             <div
               ref={trackRef}
               className="absolute left-0 top-0 h-full flex will-change-transform"
@@ -157,28 +146,28 @@ export default function WorkEthicHorizontalSticky() {
               {slides.map((s, i) => (
                 <div key={i} className="w-screen h-full px-10">
                   <div className="max-w-[1400px] mx-auto h-full flex items-center">
-                    {/* Panel layout */}
                     <div className="w-full grid grid-cols-1 lg:grid-cols-[680px_1fr] gap-16 items-center">
-                      {/* Image */}
-                      <div className="rounded-[22px] overflow-hidden bg-black/[0.03] border border-black/10">
+                      {/* IMAGE */}
+                      {/* IMAGE (floating, no frame, no white edge) */}
+                      <div className="relative -translate-y-6 rounded-[28px] overflow-hidden shadow-[rgba(0,0,0,0.18)]">
                         <img
                           src={s.img}
                           alt=""
-                          className="w-full aspect-[16/11] object-cover"
+                          className="block w-full aspect-[16/10] object-contain scale-[1.05]"
                         />
                       </div>
 
-                      {/* Text */}
+                      {/* TEXT */}
                       <div className="max-w-[560px]">
                         <p className="text-[14px] tracking-[0.18em] uppercase text-black/40">
                           {s.kicker}
                         </p>
 
-                        <h3 className="mt-4 text-[28px] md:text-[40px] font-medium text-black">
+                        <h3 className="mt-4 text-[28px] md:text-[40px] font-medium">
                           {s.title}
                         </h3>
 
-                        <div className="mt-6 h-px w-full bg-black/15" />
+                        <div className="mt-6 h-px bg-black/15" />
 
                         <p className="mt-8 text-[18px] leading-[1.7] text-black/70">
                           {s.text}
@@ -188,12 +177,12 @@ export default function WorkEthicHorizontalSticky() {
                           {s.bullets?.map((b, idx) => (
                             <div key={idx} className="flex gap-4">
                               <span className="mt-[8px] h-2 w-2 rounded-full bg-black/60" />
-                              <p className="text-black/70 leading-[1.7]">{b}</p>
+                              <p className="text-black/70">{b}</p>
                             </div>
                           ))}
                         </div>
 
-                        <button className="mt-10 inline-flex items-center justify-center px-10 h-[46px] rounded-xl border border-black/30 text-black/80 hover:border-black/60 transition-colors">
+                        <button className="mt-10 px-10 h-[46px] rounded-xl border border-black/30 hover:border-black/60">
                           Case Studies
                         </button>
                       </div>
