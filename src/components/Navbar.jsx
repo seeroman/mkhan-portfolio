@@ -1,19 +1,21 @@
-import { NavLink, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import logo from "../assets/logo/MKD Logo-02.png";
 
 const nav = [
-  { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
-  { label: "Work", to: "/work" },
-  { label: "Service", to: "/service" },
-  { label: "Contact", to: "/contact" },
+  { label: "Home", to: "#home" },
+  { label: "About", to: "#about" },
+  { label: "Ethics", to: "#workethics" },
+  { label: "Testimonial", to: "#testimonial" },
+  { label: "Process", to: "#workprocess" },
+  { label: "FAQS", to: "#faqs" },
+  { label: "Contact", to: "#contact" },
 ];
 
 export default function Navbar() {
   return (
     <header className="absolute top-0 left-0 w-full z-50">
       <div className="max-w-[1200px] mx-auto px-6 h-20 flex items-center relative">
-        {/* Left logo */}
+        {/* Logo */}
         <Link to="/" className="flex items-center">
           <img
             src={logo}
@@ -23,24 +25,16 @@ export default function Navbar() {
           />
         </Link>
 
-        {/* Center nav */}
+        {/* Navigation */}
         <nav className="hidden md:flex items-center gap-10 absolute left-1/2 -translate-x-1/2">
           {nav.map((n) => (
-            <NavLink
+            <a
               key={n.to}
-              to={n.to}
-              end={n.to === "/"}
-              className={({ isActive }) =>
-                [
-                  "text-[15px] font-medium transition-colors",
-                  isActive
-                    ? "text-[#ff7a2f]"
-                    : "text-white/85 hover:text-white",
-                ].join(" ")
-              }
+              href={n.to}
+              className="text-[15px] font-medium text-white/85 hover:text-white transition-colors"
             >
               {n.label}
-            </NavLink>
+            </a>
           ))}
         </nav>
       </div>

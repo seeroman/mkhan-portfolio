@@ -23,7 +23,7 @@ export default function WorkProcessSection() {
   ];
 
   return (
-    <section className="bg-[#f4f4f4]">
+    <section id="workprocess" className="bg-[#f4f4f4]">
       <div className="max-w-[1400px] mx-auto px-10 py-20">
         {/* Label */}
         <p className="text-[18px] text-black/70">Work Process</p>

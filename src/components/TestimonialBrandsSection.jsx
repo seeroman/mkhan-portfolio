@@ -115,7 +115,7 @@ export default function TestimonialBrandsSection() {
   const active = testimonials[activeIndex];
 
   return (
-    <section className="relative bg-black overflow-hidden">
+    <section id="testimonial" className="relative bg-black overflow-hidden">
       <div className="relative max-w-[1400px] mx-auto px-6 md:px-10 pt-16 pb-12">
         <p className="text-white/50 text-[16px]">Testimonial</p>
 

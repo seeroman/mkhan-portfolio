@@ -3,7 +3,7 @@ import aboutPhoto from "../assets/home/about-photo.jpeg";
 
 export default function WelcomeSection() {
   return (
-    <section className="relative bg-black overflow-hidden">
+    <section id="about" className="relative bg-black overflow-hidden">
       <div className="relative max-w-[1400px] mx-auto px-10 pt-10 pb-16">
         {/* top label */}
         <div className="text-white/90 text-[18px]">Welcome</div>

@@ -84,7 +84,7 @@ export default function ContactSection() {
   ];
 
   return (
-    <section className="bg-[#f4f4f4]">
+    <section id="contact" className="bg-[#f4f4f4]">
       <div className="max-w-[1400px] mx-auto px-10 py-20">
         <p className="text-[18px] text-black/70">Contact</p>
 

@@ -6,6 +6,7 @@ import WorkProcessSection from "../components/WorkProcessSection";
 import FaqSection from "../components/FaqSection";
 import ContactSection from "../components/ContactSection";
 import WorkEthicScrollSection from "../components/WorkEthicScrollSection";
+import BackToTop from "../components/BackToTop";
 export default function Home() {
   return (
     <>
@@ -17,6 +18,7 @@ export default function Home() {
       <WorkProcessSection />
       <FaqSection />
       <ContactSection />
+      <BackToTop />
     </>
   );
 }

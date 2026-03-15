@@ -93,7 +93,11 @@ export default function WorkEthicHorizontalSticky() {
   const activeFill = clamp(p01 * n - active, 0, 1);
 
   return (
-    <section ref={sectionRef} className="bg-white text-black pb-40">
+    <section
+      id="workethics"
+      ref={sectionRef}
+      className="bg-white text-black pb-40"
+    >
       <div className="h-[260vh]">
         <div className="sticky top-0 h-screen overflow-hidden">
           {/* HEADER */}
