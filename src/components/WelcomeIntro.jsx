@@ -40,14 +40,14 @@ export default function WelcomeSection() {
               challenges.
             </p>
 
-            {/* <div className="mt-16">
+            <div className="mt-16">
               <a
                 href="/about"
                 className="inline-flex items-center justify-center w-[360px] h-[56px] rounded-xl border border-white/35 text-white/90 text-[18px] hover:border-white/60 transition-colors"
               >
                 About me
               </a>
-            </div> */}
+            </div>
           </div>
 
           {/* right image */}
