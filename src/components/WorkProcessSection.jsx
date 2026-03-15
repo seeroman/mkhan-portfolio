@@ -25,10 +25,8 @@ export default function WorkProcessSection() {
   return (
     <section id="workprocess" className="bg-[#f4f4f4]">
       <div className="max-w-[1400px] mx-auto px-10 py-20">
-        {/* Label */}
         <p className="text-[18px] text-black/70">Work Process</p>
 
-        {/* Heading */}
         <h2 className="mt-6 leading-[1.05]">
           <span className="block text-[48px] md:text-[54px] font-medium text-black/75">
             Good design doesn’t happen by accident.
@@ -38,7 +36,6 @@ export default function WorkProcessSection() {
           </span>
         </h2>
 
-        {/* Cards */}
         <div className="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((s) => (
             <div
@@ -54,7 +51,7 @@ export default function WorkProcessSection() {
 
               <div className="flex-1" />
 
-              <div className="h-[160px] flex items-end">
+              <div className="h-[160px]">
                 <p className="text-[16px] leading-[1.55] text-black/55 whitespace-pre-line">
                   {s.text}
                 </p>
