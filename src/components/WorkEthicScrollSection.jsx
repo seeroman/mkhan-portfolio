@@ -245,7 +245,7 @@ export default function WorkEthicHorizontalSticky() {
 
                           {/* main soft plate */}
                           <div
-                            className="absolute left-6 top-6 h-[120px] w-[300px] border border-white/50 bg-white/60 shadow-[0_24px_70px_rgba(0,0,0,0.08)] backdrop-blur-md"
+                            className="absolute right-5 top-6 h-[120px] w-[400px] border border-[#ff7a2f]/10 bg-white/40 shadow-[0_4px_20px_rgba(0,0,0,0.05)] backdrop-blur-md"
                             style={{
                               borderRadius:
                                 "38px 64px 42px 70px / 44px 52px 58px 46px",
@@ -255,7 +255,7 @@ export default function WorkEthicHorizontalSticky() {
 
                           {/* glossy highlight */}
                           <div
-                            className="absolute left-12 top-10 h-[2px] w-[180px] bg-white/80 blur-[1px]"
+                            className="absolute left-12 top-10 h-[2px] w-[180px] bg-white/10 blur-[1px]"
                             style={{
                               borderRadius: "999px",
                               transform: "rotate(-7deg)",
@@ -299,9 +299,9 @@ export default function WorkEthicHorizontalSticky() {
                             ))}
                           </div>
 
-                          <button className="mt-10 inline-flex h-[50px] items-center rounded-2xl border border-black/10 bg-white/80 px-10 text-[15px] font-medium text-black shadow-[0_18px_45px_rgba(0,0,0,0.08)] backdrop-blur-md transition duration-300 hover:-translate-y-[1px] hover:border-black/20 hover:shadow-[0_24px_55px_rgba(0,0,0,0.10)]">
+                          {/* <button className="mt-10 inline-flex h-[50px] items-center rounded-2xl border border-black/10 bg-white/80 px-10 text-[15px] font-medium text-black shadow-[0_18px_45px_rgba(0,0,0,0.08)] backdrop-blur-md transition duration-300 hover:-translate-y-[1px] hover:border-black/20 hover:shadow-[0_24px_55px_rgba(0,0,0,0.10)]">
                             Case Studies
-                          </button>
+                          </button> */}
                         </div>
                       </div>
                       {/* END TEXT */}
