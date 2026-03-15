@@ -187,7 +187,7 @@ export default function WorkEthicHorizontalSticky() {
                           <img
                             src={s.img}
                             alt={s.title}
-                            className="block w-full aspect-[16/10] object-cover"
+                            className="block w-100% aspect-[10/8] object-cover"
                           />
                         </div>
                       </div>
