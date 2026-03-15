@@ -21,13 +21,14 @@ export default function WelcomeSection() {
         </div>
 
         {/* content grid */}
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-[520px_1fr] gap-10 items-start">
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-[520px_1fr] gap-10 items-start">
           {/* left text */}
           <div className="text-white/90">
-            <p className="text-[20px] leading-[1.55]">
+            <p className="mt-20 text-[20px] leading-[1.55]">
               I work with brands and businesses to create product
               <br />
               visuals that are not just attractive, but strategic.
+              <br />
               <br />
               From listing images to enhanced visual content, I focus
               <br />
@@ -39,14 +40,14 @@ export default function WelcomeSection() {
               challenges.
             </p>
 
-            <div className="mt-16">
+            {/* <div className="mt-16">
               <a
                 href="/about"
                 className="inline-flex items-center justify-center w-[360px] h-[56px] rounded-xl border border-white/35 text-white/90 text-[18px] hover:border-white/60 transition-colors"
               >
                 About me
               </a>
-            </div>
+            </div> */}
           </div>
 
           {/* right image */}
