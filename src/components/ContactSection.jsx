@@ -10,26 +10,68 @@ export default function ContactSection() {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
+
   function onChange(e) {
     const { name, value } = e.target;
     setForm((p) => ({ ...p, [name]: value }));
   }
 
-  function onSubmit(e) {
+  async function onSubmit(e) {
     e.preventDefault();
-    console.log("Contact form:", form);
-    alert("Submitted (demo).");
+    setLoading(true);
+    setStatus("");
+
+    try {
+      const res = await fetch("https://formspree.io/f/meerlevv", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          service: form.service,
+          source: form.source,
+          message: form.message,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        setStatus("success");
+        setForm({
+          name: "",
+          email: "",
+          service: "",
+          source: "",
+          message: "",
+        });
+      } else {
+        setStatus("error");
+        console.error(data);
+      }
+    } catch (error) {
+      setStatus("error");
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
   }
 
   const inputBase =
     "w-full h-[56px] rounded-xl border border-black/35 bg-transparent px-5 text-[16px] text-black outline-none placeholder:text-black/35 focus:border-[#f15a28] focus:ring-1 focus:ring-[#f15a28] transition-colors";
+
   const labelBase = "text-[16px] text-black/80 mb-3";
 
   const serviceOptions = [
     { value: "gallery", label: "Gallery / Listing Images" },
     { value: "aplus", label: "A+ Content (EBC)" },
-    { value: "brand", label: "Brand Identity (Logo) " },
-    { value: "banner", label: "Social Media Banner " },
+    { value: "brand", label: "Brand Identity (Logo)" },
+    { value: "banner", label: "Social Media Banner" },
     { value: "other", label: "Others" },
   ];
 
@@ -50,6 +92,7 @@ export default function ContactSection() {
           <span className="block text-[48px] md:text-[54px] font-medium text-black/75">
             Not sure where to start?
           </span>
+
           <span className="block text-[48px] md:text-[54px] font-light text-black/35">
             A message is a good first step.
           </span>
@@ -84,22 +127,24 @@ export default function ContactSection() {
             </div>
           </div>
 
-          {/* Row 2 (custom select) */}
+          {/* Row 2 */}
           <div className="mt-8">
             <div className={labelBase}>What service are you interested in?</div>
+
             <BrandedSelect
               name="service"
               value={form.service}
               onChange={(v) => setForm((p) => ({ ...p, service: v }))}
               options={serviceOptions}
-              placeholder="Main images, Gallery images, Graphic. . ."
+              placeholder="Main images, Gallery images, Graphic..."
               required
             />
           </div>
 
-          {/* Row 3 (custom select) */}
+          {/* Row 3 */}
           <div className="mt-8">
             <div className={labelBase}>How did you find me?</div>
+
             <BrandedSelect
               name="source"
               value={form.source}
@@ -113,6 +158,7 @@ export default function ContactSection() {
           {/* Row 4 */}
           <div className="mt-8">
             <div className={labelBase}>How can I help you?*</div>
+
             <textarea
               name="message"
               value={form.message}
@@ -123,13 +169,27 @@ export default function ContactSection() {
             />
           </div>
 
+          {/* Status Messages */}
+
+          {status === "success" && (
+            <p className="mt-6 text-[#f15a28]">Message sent successfully.</p>
+          )}
+
+          {status === "error" && (
+            <p className="mt-6 text-red-600">
+              Something went wrong. Please try again.
+            </p>
+          )}
+
           {/* Submit */}
+
           <div className="mt-10 flex justify-end">
             <button
               type="submit"
-              className="h-[56px] w-[170px] rounded-xl border border-black/35 text-black/80 hover:border-black/60 transition-colors"
+              disabled={loading}
+              className="h-[56px] w-[170px] rounded-xl border border-black/35 text-black/80 hover:border-black/60 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Submit
+              {loading ? "Sending..." : "Send Message"}
             </button>
           </div>
         </form>
