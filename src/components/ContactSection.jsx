@@ -27,9 +27,10 @@ export default function ContactSection() {
 
   const serviceOptions = [
     { value: "gallery", label: "Gallery / Listing Images" },
-    { value: "aplus", label: "A+ / Enhanced Content" },
-    { value: "brand", label: "Brand / Marketing Graphics" },
-    { value: "other", label: "Other" },
+    { value: "aplus", label: "A+ Content (EBC)" },
+    { value: "brand", label: "Brand Identity (Logo) " },
+    { value: "banner", label: "Social Media Banner " },
+    { value: "other", label: "Others" },
   ];
 
   const sourceOptions = [

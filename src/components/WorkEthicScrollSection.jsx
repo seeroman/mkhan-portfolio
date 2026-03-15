@@ -80,6 +80,7 @@ export default function WorkEthicHorizontalSticky() {
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
+
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("scroll", onScroll);
@@ -103,7 +104,6 @@ export default function WorkEthicHorizontalSticky() {
               Designed for <span className="font-medium">progress</span>
             </h2>
 
-            {/* progress */}
             <div className="mt-10 flex gap-4 max-w-[520px]">
               {slides.map((_, i) => {
                 const width =
@@ -124,7 +124,7 @@ export default function WorkEthicHorizontalSticky() {
             </div>
           </div>
 
-          {/* CENTER DOTTED STAGE */}
+          {/* STAGE */}
           <div className="relative mt-10 h-[calc(100vh-220px)] flex items-center">
             <div className="absolute inset-0 flex justify-center">
               <div
@@ -137,7 +137,6 @@ export default function WorkEthicHorizontalSticky() {
               />
             </div>
 
-            {/* horizontal track */}
             <div
               ref={trackRef}
               className="absolute left-0 top-0 h-full flex will-change-transform"
@@ -148,7 +147,6 @@ export default function WorkEthicHorizontalSticky() {
                   <div className="max-w-[1400px] mx-auto h-full flex items-center">
                     <div className="w-full grid grid-cols-1 lg:grid-cols-[680px_1fr] gap-16 items-center">
                       {/* IMAGE */}
-                      {/* IMAGE (floating, no frame, no white edge) */}
                       <div className="relative -translate-y-6 rounded-[28px] overflow-hidden shadow-[rgba(0,0,0,0.18)]">
                         <img
                           src={s.img}
@@ -157,35 +155,59 @@ export default function WorkEthicHorizontalSticky() {
                         />
                       </div>
 
-                      {/* TEXT */}
-                      <div className="max-w-[560px]">
-                        <p className="text-[14px] tracking-[0.18em] uppercase text-black/40">
-                          {s.kicker}
-                        </p>
-
-                        <h3 className="mt-4 text-[28px] md:text-[40px] font-medium">
-                          {s.title}
-                        </h3>
-
-                        <div className="mt-6 h-px bg-black/15" />
-
-                        <p className="mt-8 text-[18px] leading-[1.7] text-black/70">
-                          {s.text}
-                        </p>
-
-                        <div className="mt-8 space-y-5">
-                          {s.bullets?.map((b, idx) => (
-                            <div key={idx} className="flex gap-4">
-                              <span className="mt-[8px] h-2 w-2 rounded-full bg-black/60" />
-                              <p className="text-black/70">{b}</p>
-                            </div>
-                          ))}
+                      {/* TEXT WITH LIQUID SHAPE */}
+                      <div className="relative max-w-[560px]">
+                        {/* premium blob background */}
+                        <div className="pointer-events-none absolute -left-16 top-2 h-[320px] w-[360px] opacity-100">
+                          <div
+                            className="absolute inset-0 bg-black/[0.045] blur-3xl"
+                            style={{
+                              borderRadius: "58% 42% 45% 55% / 44% 56% 48% 52%",
+                              transform: "rotate(-14deg)",
+                            }}
+                          />
+                          <div
+                            className="absolute left-[18%] top-[12%] h-[76%] w-[72%] bg-black/[0.035] blur-2xl"
+                            style={{
+                              borderRadius: "44% 56% 63% 37% / 41% 39% 61% 59%",
+                              transform: "rotate(18deg)",
+                            }}
+                          />
                         </div>
 
-                        <button className="mt-10 px-10 h-[46px] rounded-xl border border-black/30 hover:border-black/60">
-                          Case Studies
-                        </button>
+                        {/* small supporting accent */}
+                        <div className="pointer-events-none absolute right-4 bottom-2 h-[150px] w-[150px] rounded-[36px] bg-black/[0.03] blur-2xl rotate-[18deg]" />
+
+                        <div className="relative z-10">
+                          <p className="text-[14px] tracking-[0.18em] uppercase text-black/40">
+                            {s.kicker}
+                          </p>
+
+                          <h3 className="mt-4 text-[28px] md:text-[40px] font-medium">
+                            {s.title}
+                          </h3>
+
+                          <div className="mt-6 h-px bg-black/15" />
+
+                          <p className="mt-8 text-[18px] leading-[1.7] text-black/70">
+                            {s.text}
+                          </p>
+
+                          <div className="mt-8 space-y-5">
+                            {s.bullets?.map((b, idx) => (
+                              <div key={idx} className="flex gap-4">
+                                <span className="mt-[8px] h-2 w-2 rounded-full bg-black/60" />
+                                <p className="text-black/70">{b}</p>
+                              </div>
+                            ))}
+                          </div>
+
+                          <button className="mt-10 px-10 h-[46px] rounded-xl border border-black/30 hover:border-black/60 transition">
+                            Case Studies
+                          </button>
+                        </div>
                       </div>
+                      {/* END TEXT */}
                     </div>
                   </div>
                 </div>

@@ -32,11 +32,11 @@ function Floating({ children, delay = 0 }) {
 
 export default function Hero() {
   return (
-    <section className="relative bg-[#0b0b0b] overflow-hidden">
+    <section className="relative bg-black overflow-hidden">
       {/* Vignette / glow */}
-      <div className="pointer-events-none absolute inset-0">
+      {/* <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.10)_0%,rgba(11,11,11,0.92)_55%,rgba(11,11,11,1)_100%)]" />
-      </div>
+      </div> */}
 
       <div className="relative max-w-[1400px] mx-auto px-6 pt-28 pb-16">
         {/* Headline + cursor */}

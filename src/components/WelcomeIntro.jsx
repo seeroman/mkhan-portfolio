@@ -3,12 +3,7 @@ import aboutPhoto from "../assets/home/about-photo.jpeg";
 
 export default function WelcomeSection() {
   return (
-    <section className="relative bg-[#0b0b0b] overflow-hidden">
-      {/* subtle vignette like your screenshot */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08)_0%,rgba(11,11,11,0.92)_55%,rgba(11,11,11,1)_100%)]" />
-      </div>
-
+    <section className="relative bg-black overflow-hidden">
       <div className="relative max-w-[1400px] mx-auto px-10 pt-10 pb-16">
         {/* top label */}
         <div className="text-white/90 text-[18px]">Welcome</div>
@@ -44,7 +39,6 @@ export default function WelcomeSection() {
               challenges.
             </p>
 
-            {/* button aligned bottom-left like screenshot */}
             <div className="mt-16">
               <a
                 href="/about"
@@ -55,7 +49,7 @@ export default function WelcomeSection() {
             </div>
           </div>
 
-          {/* right image card */}
+          {/* right image */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
