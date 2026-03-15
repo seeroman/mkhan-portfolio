@@ -44,7 +44,7 @@ export default function FaqSection() {
   const [openIdx, setOpenIdx] = useState(null);
 
   return (
-    <section id="faqs" className="relative bg-[#0b0b0b] overflow-hidden">
+    <section id="faqs" className="relative bg-black overflow-hidden">
       {/* vignette */}
       <div className="pointer-events-none absolute inset-0">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.07)_0%,rgba(11,11,11,0.92)_60%,rgba(11,11,11,1)_100%)]" />
